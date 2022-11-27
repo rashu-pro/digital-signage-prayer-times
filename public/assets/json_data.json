@@ -1,0 +1,33 @@
+{
+  "date": "05-12-2021",
+  "prayerTimes": {
+    "fajr": {
+      "adhan": "6:15 AM",
+      "prayer": "6:20 AM"
+    },
+    "dhuhr": {
+      "adhan": "1:00 PM",
+      "prayer": "1:20 PM"
+    },
+    "Asr": {
+      "adhan": "4:39 PM",
+      "prayer": "5:00 PM"
+    },
+    "maghrib": {
+      "adhan": "7:11 PM",
+      "prayer": "7:16 PM"
+    },
+    "isha": {
+      "adhan": "8:18 PM",
+      "prayer": "8:45 PM"
+    }
+  },
+  "jummuahTimes": {
+    "Jummuah": {
+      "adhan": "1:45 PM",
+      "prayer": "2:00 PM",
+      "date" : "FRIDAY, 25TH NOVEMBER",
+      "khateeb": "Dr. Omar Suleiman"
+    }
+  }
+}

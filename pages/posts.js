@@ -1,5 +1,3 @@
-import React from "react";
-
 export const getStaticProps = async () => {
 
     // Fetching data from jsonplaceholder.
@@ -20,8 +18,8 @@ const Albums = ({ allAlbums }) => {
         <div>
             <h1>All Albums</h1>
             {allAlbums.map((album, idx) => (
-                <div key={idx}>{album}</div>))
-            }
+                <div key={idx}>{album}</div>
+            ))}
         </div>
     )
 }
