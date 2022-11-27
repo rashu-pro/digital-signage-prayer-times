@@ -8509,6 +8509,7 @@ h2, h3, h4, h5, h6 {
 }
 .ds-announcement{
   min-width: 80%;
+  max-width:80%;
   display: inline-block;
 }
 .ds-wrapper {
@@ -8561,7 +8562,7 @@ h2, h3, h4, h5, h6 {
   font-size: 2rem;
   font-weight: 600;
 }
-.ds-body .table tr.next-time {
+.ds-body .table .next-time1{
   border-top: 3px solid #1FAA60;
   background: #000;
 }
@@ -8586,6 +8587,7 @@ h2, h3, h4, h5, h6 {
 .ds-foot .table td, .ds-foot .table th {
   font-size: 1.4rem;
   font-weight: 700;
+  padding:1.2rem;
 }
 .ds-foot .table-bordered th,
 .ds-foot .table-bordered td{
@@ -8702,3 +8704,26 @@ h2, h3, h4, h5, h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.swiper.swiper-initialized{
+  width: 100%;
+}
+.swiper-slide{
+  /*opacity: 0!important;*/
+}
+.swiper-slide.swiper-slide-visible{
+  /*opacity: 1!important;*/
+}
+.swiper-wrapper{
+  align-items: center;
+  height: auto!important;
+}
+.jummah-date{
+  text-align: center;
+  background: #000;
+  color: #fff;
+  margin-bottom: 15px;
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 15px;
+}
