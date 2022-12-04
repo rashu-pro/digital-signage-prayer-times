@@ -4,9 +4,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
+import useSWR from "swr";
+import getSlug from "./slug";
+import styleUtility from "../styles/Utility.module.css";
 // import 'swiper/css/effect-fade';
 
+const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function AnnouncementsSlides(){
+  const { data, error } = useSWR('https://secure-api.net/api/v1/company-prayer?slug='+getSlug(), fetcher)
+  if(error) return <p className='text-center'> Failed to load... </p>
+  if(!data) return <p className='text-center'>loading...</p>
+
     return (
         <Swiper
             modules={[Autoplay]}
@@ -20,41 +28,21 @@ export default function AnnouncementsSlides(){
             onSlideChange={() => console.log('slide change')}
             onSwiper={(swiper) => console.log(swiper)}
         >
-            <SwiperSlide>
-                <div className="text-center py-4">
-                    <div className="ds-info ds-announcement bg-white text-dark">
-                        <div className="ds-info-head py-1 px-3">
-                            <p className="text-dark text-center text-uppercase fs-3 fw-bold m-0">The Prayer For Eid Al Adha</p>
-                        </div>
-                        <hr className="m-0" />
-                        <div className="ds-info-body fs-3 py-4">
-                            <p className="m-0 mb-2 px-3 fw-semibold text-center">28<sup>th</sup> June (<span className="fw-bold">7:30 AM)</span> </p>
-                        </div>
-                    </div>
+          {data.events.map((data, index)=>(
+            <SwiperSlide key={index}>
+              <div className="text-center py-4">
+                <div className="ds-info ds-announcement bg-white text-dark">
+                  <div className="ds-info-head py-1 px-3">
+                    <p className="text-dark text-center text-uppercase fs-3 fw-bold m-0">{data.title}</p>
+                  </div>
+                  <hr className="m-0" />
+                  <div className="ds-info-body fs-3 py-4">
+                    <p className="m-0 mb-2 px-3 fw-semibold text-center">{data.description} </p>
+                  </div>
                 </div>
+              </div>
             </SwiperSlide>
-
-            <SwiperSlide>
-                <div className="text-center py-4">
-                    <div className="ds-info ds-announcement bg-white text-dark">
-                        <div className="ds-info-head py-1 px-3">
-                            <p className="text-dark text-center text-uppercase fs-3 fw-bold m-0">IN THE NAME OF ALLAH</p>
-                        </div>
-                        <hr className="m-0" />
-                        <div className="ds-info-body fs-3 py-4">
-                            <p className="m-0 mb-2 px-3 fw-semibold text-center">
-                                MY MERCY ENCOMPASSES ALL THINGS. SO I WILL DECREE IT FOR THOSE WHO FEAR ME AND GIVE ZAKAH AND THOSE WHO BELIVE IN OUR VERSES.
-                            </p>
-                            <p className='m-0 fw-semibold fs-4 text-center'>
-                                <div className="divider-holder pt-3 pb-1">
-                                    <div className="divider bg-success"></div>
-                                </div>
-                                Surah Al A`raf - Verse 156
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </SwiperSlide>
+          ))}
         </Swiper>
-    );
+    )
 }
