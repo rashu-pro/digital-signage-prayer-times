@@ -8496,7 +8496,7 @@ h2, h3, h4, h5, h6 {
 }
 .ds-inner {
   min-width: 80%;
-  max-width: 80%;
+  /*max-width: 80%;*/
   margin: 0 auto;
 }
 .ds-head{
@@ -8553,7 +8553,8 @@ h2, h3, h4, h5, h6 {
 }
 .ds-body .table tr th,
 .ds-body .table tr td{
-  height:5vh;
+  /*height:5vh;*/
+  height:5rem;
   vertical-align: middle;
 }
 .ds-body .table tr td {
@@ -8685,24 +8686,45 @@ h2, h3, h4, h5, h6 {
 
 @media (min-height: 1400px){
   body,html{
-    font-size:18px;
+    font-size:14px;
   }
 }
 
-@media (min-height: 1600px) {
+@media (min-height: 1600px){
+  body,html{
+    font-size:16px;
+  }
+}
+
+@media (min-height: 1800px) {
+
+  body,html{
+    font-size:18px;
+  }
+
   .ds-wrapper{
 
   }
   .ds-credit{
-    height: 6vh;
+    height: 6rem;
   }
   .table-head{
-    height:5vh;
+    height:5rem;
   }
 }
 
 /*# sourceMappingURL=style.css.map */
 
+
+.ds-credit img{
+  max-height: 5.5rem;
+}
+.table-jummuah-times th span{
+  display: inline-block;
+}
+.table-jummuah-times td span{
+  display: inline-block;
+}
 .swiper.swiper-initialized{
   width: 100%;
 }
@@ -8743,4 +8765,7 @@ h2, h3, h4, h5, h6 {
   object-fit: contain;
   width: auto!important;
   height: auto!important;
+}
+.ds-credit-inner{
+  /*max-height: 6rem;*/
 }
