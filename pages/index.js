@@ -28,11 +28,6 @@ export default function Home() {
             {/*ds body*/}
             <PrayerTimes />
 
-              <div className='ds-body-wrapper-foot py-3'>
-                {/*jummuah times*/}
-                <JummuahTimes />
-              </div>
-
           </div>
 
           <ScreenFoot />

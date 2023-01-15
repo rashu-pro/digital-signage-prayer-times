@@ -1,5 +1,7 @@
 import useSWR from 'swr'
 import {useRouter} from "next/router";
+import Script from "next/script";
+import JummuahTimes from "./jummuah-times";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function PrayerTimes(){
@@ -17,15 +19,27 @@ export default function PrayerTimes(){
     if(!data) return <p className='text-center'>loading...</p>
 
     return (
-        <div className="ds-body bg-dark">
+        <div className="ds-body">
+            <Script id="current-date" strategy="lazyOnload">
+                {
+                    `
+                    let options = { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' };
+let today  = new Date();
+document.getElementById('show-date').innerText = today.toLocaleDateString("en-US", options);
+                    `
+                }
+            </Script>
             <div className="">
-                <div className="table-head d-flex justify-content-center align-items-center text-center py-1 bg-white text-dark fw-bold fs-1">Today&apos;s Prayer Times</div>
-                <table
-                    className="table table-borderless table-prayer-times table-border-custom table-striped m-0 border-0">
+                <div className="table-head d-flex justify-content-center align-items-center text-center py-3 fw-bold"
+                     id="show-date">
+
+                    Today&apos;s Prayer Times
+                </div>
+                <table className="table table-borderless table-prayer-times table-border-custom table-striped m-0 border-0">
                     <thead>
                     <tr>
                         <th>Salah</th>
-                        <th>Adhan</th>
+                        <th>Azaan</th>
                         <th>Iqama</th>
                     </tr>
                     </thead>
@@ -43,6 +57,8 @@ export default function PrayerTimes(){
 
                 </table>
             </div>
+
+            <JummuahTimes />
         </div>
     )
 }

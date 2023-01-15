@@ -8185,12 +8185,13 @@ textarea.form-control-lg {
 }
 
 .table {
-  --bs-table-color: var(--bs-body-color);
+  /*--bs-table-color: var(--bs-body-color);*/
+  --bs-table-color: #fff;
   --bs-table-bg: transparent;
   --bs-table-border-color: var(--bs-border-color);
   --bs-table-accent-bg: transparent;
   --bs-table-striped-color: var(--bs-body-color);
-  --bs-table-striped-bg: rgba(0, 0, 0, 0.20);
+  --bs-table-striped-bg: rgb(85 141 101 / 40%);
   --bs-table-active-color: var(--bs-body-color);
   --bs-table-active-bg: rgba(0, 0, 0, 0.1);
   --bs-table-hover-color: var(--bs-body-color);
@@ -8242,7 +8243,7 @@ textarea.form-control-lg {
 
 .table-striped > tbody > tr:nth-of-type(odd) > * {
   --bs-table-accent-bg: var(--bs-table-striped-bg);
-  color: var(--bs-table-striped-color);
+  color: #fff;
 }
 
 .table-striped-columns > :not(caption) > tr > :nth-child(even) {
@@ -8264,7 +8265,8 @@ textarea.form-control-lg {
   --bs-table-color: #000;
   --bs-table-bg: #cfe2ff;
   --bs-table-border-color: #bacbe6;
-  --bs-table-striped-bg: #c5d7f2;
+  /*--bs-table-striped-bg: #c5d7f2;*/
+  --bs-table-striped-bg: #80ad904a;
   --bs-table-striped-color: #000;
   --bs-table-active-bg: #bacbe6;
   --bs-table-active-color: #000;
@@ -8413,14 +8415,14 @@ body {
   line-height: 1.7;
   box-sizing: border-box;
   /*color: #ffffff;*/
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 
 body, html {
   font-size: 12px;
   font-weight: 600;
   line-height: 1.3;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 @media (min-width: 768px) {
   body, html {
@@ -8500,7 +8502,7 @@ h2, h3, h4, h5, h6 {
   margin: 0 auto;
 }
 .ds-head{
-  height: 17%;
+  height: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8513,16 +8515,22 @@ h2, h3, h4, h5, h6 {
 .ds-wrapper {
   max-width: 100%;
   margin: 0 auto;
-  background-color: #1FAA60;
+  /*background-color: #1FAA60;*/
+  background-color: #305e3a;
   color:#fff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-bottom: 11rem;
 }
 .ds-credit{
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 @media (min-width: 992px) {
   .ds-wrapper {
@@ -8539,13 +8547,18 @@ h2, h3, h4, h5, h6 {
   font-size: 1.4rem;
 }
 .ds-body-wrapper{
-  height: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
+@media (min-height: 1600px){
+  .ds-body-wrapper{
+    height: 84%;
+  }
+}
 .ds-body .table tr th, .ds-body .table tr td {
-  padding: 0.9rem 0.6rem;
+  padding: 1.4rem 0.6rem;
   text-align: center;
 }
 .ds-body .table tr th {
@@ -8554,7 +8567,7 @@ h2, h3, h4, h5, h6 {
 .ds-body .table tr th,
 .ds-body .table tr td{
   /*height:5vh;*/
-  height:5rem;
+  height:6.2rem;
   vertical-align: middle;
 }
 .ds-body .table tr td {
@@ -8578,7 +8591,7 @@ h2, h3, h4, h5, h6 {
 }
 .ds-body .table-prayer-times tbody tr:last-child td,
 .ds-body .table-prayer-times tbody tr:last-child th {
-  padding-bottom: 2.2rem;
+  /*padding-bottom: 2.2rem;*/
 }
 .ds-foot .table {
   border: 0;
@@ -8669,6 +8682,12 @@ h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
+.organization-logo{
+  width:350px;
+  height:100px;
+  position: relative;
+}
+
 @media (min-width: 1200px) {
   .fs-2 {
     font-size: 2.2rem;
@@ -8677,7 +8696,7 @@ h2, h3, h4, h5, h6 {
 
 @media (min-height: 768px){
   body,html{
-    font-size:11px;
+    font-size:9.5px;
   }
   .ds-wrapper{
     height:100vh;
@@ -8699,17 +8718,36 @@ h2, h3, h4, h5, h6 {
 @media (min-height: 1800px) {
 
   body,html{
-    font-size:18px;
+    font-size:17px;
   }
 
   .ds-wrapper{
 
   }
   .ds-credit{
-    height: 6rem;
+    /*height: 6rem;*/
   }
   .table-head{
-    height:5rem;
+    height: 7rem;
+    font-size: 3rem;
+  }
+}
+
+@media (min-height: 2400px){
+  body,html{
+    font-size: 24px;
+  }
+  .organization-logo{
+    height:140px;
+  }
+}
+
+@media (min-height: 3600px){
+  body,html{
+    font-size: 35px;
+  }
+  .organization-logo{
+    height:150px;
   }
 }
 
@@ -8746,6 +8784,7 @@ h2, h3, h4, h5, h6 {
   display: inline-block;
   padding: 2px 10px;
   border-radius: 15px;
+  font-size: 1.85rem;
 }
 .ds-body-wrapper-foot{
   display: flex;
@@ -8756,11 +8795,7 @@ h2, h3, h4, h5, h6 {
 .logo-company{
   max-height: 100px;
 }
-.organization-logo{
-  width:350px;
-  height:100px;
-  position: relative;
-}
+
 .organization-logo img{
   object-fit: contain;
   width: auto!important;
@@ -8768,4 +8803,33 @@ h2, h3, h4, h5, h6 {
 }
 .ds-credit-inner{
   /*max-height: 6rem;*/
+}
+.table-head{
+  border-width: 2px 0 2px 0;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 0.65);
+}
+.ds-body .table-border-custom tr th:first-child,
+.ds-body .table-border-custom tr td:first-child{
+  text-align: left;
+  padding-left:4rem;
+}
+
+.ds-body .table-border-custom tr th:last-child,
+.ds-body .table-border-custom tr td:last-child{
+  text-align: right;
+  padding-right:4rem;
+}
+.text-left{
+  text-align: left!important;
+}
+
+
+.bg-white.bg-white-off {
+  --bs-bg-opacity: 0.3;
+  padding: 0.8rem 0;
+}
+.khateeb-name{
+  color: #d2e1d5;
+  font-size: 1.8rem;
 }

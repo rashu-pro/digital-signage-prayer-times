@@ -18,29 +18,35 @@ export default function JummuahTimes(){
 
     return (
         <div className="ds-foot ds-inner">
-            <div className="bg-white ds-foot-inner">
-                <div className="bg-white py-2 d-flex justify-content-center align-items-center text-center py-1 bg-white text-dark fw-bold fs-2">Jummuah Times</div>
-                <div className='text-center'>
-                    <p className="jummah-date bg-success">{data.jummah[0].date}</p>
+            <div className="ds-foot-inner">
+                <div className="bg-white bg-white-off">
+                    <div className="py-2 d-flex justify-content-center text-uppercase align-items-center text-center py-1 fw-bold fs-2">Jummuah Times</div>
+                    <div className='text-center'>
+                        <p className="jummah-date bg-success">{data.jummah[0].date}</p>
+                    </div>
                 </div>
 
-                <table
-                    className="table table-striped table-borderless table-prayer-times m-0 border-0 text-center table-bordered">
+
+                <table className="table table-borderless table-prayer-times table-2tr table-border-custom table-striped m-0 border-0">
                     <tbody>
-                    <tr>
-                        <th>Salah</th>
-                        <th>Adhan</th>
-                        <th>Iqama</th>
-                        <th>Khateeb</th>
-                    </tr>
 
                     { data.jummah.map( (data, index) => (
-                      <tr key={index}>
-                          <td>{data.prayerName}</td>
-                          <td>{data.adhan}</td>
-                          <td>{data.prayer}</td>
-                          <td>{data.khateeb}</td>
-                      </tr>
+                      <>
+                          <tr key={index} className={"row-"+index}>
+                              <td>
+                                  <div className="d-flex justify-content-between">
+                                      <span>{data.prayerName}</span>
+                                      <span>{data.adhan}</span>
+                                      <span>{data.prayer}</span>
+                                  </div>
+                                  <div className="text-left mt-2 khateeb-name">
+                                      Khateeb: {data.khateeb}
+                                  </div>
+                              </td>
+
+                          </tr>
+                      </>
+
                     ) )}
                     </tbody>
                     <tr>
