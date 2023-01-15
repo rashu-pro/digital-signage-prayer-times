@@ -29,9 +29,6 @@ export default function Home() {
             <PrayerTimes />
 
               <div className='ds-body-wrapper-foot py-3'>
-                {/*announcements*/}
-                <AnnouncementsSlides />
-
                 {/*jummuah times*/}
                 <JummuahTimes />
               </div>
