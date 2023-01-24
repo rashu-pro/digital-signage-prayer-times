@@ -1,4 +1,4 @@
-import useSWR from 'swr'
+import useSWR from 'swr';
 import getSlug from "./slug";
 import Image from "next/image";
 

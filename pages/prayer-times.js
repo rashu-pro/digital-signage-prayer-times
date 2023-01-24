@@ -13,10 +13,12 @@ export default function PrayerTimes(){
 
     let slug = asPath.split('=');
     slug = slug[slug.length - 1];
+    let refreshInterval = 120*3600*1000;
 
-    const { data, error } = useSWR('https://secure-api.net/api/v1/company/prayer/daily/schedule?slug='+slug, fetcher, { refreshInterval: 21600000 })
+    const { data, error } = useSWR('https://secure-api.net/api/v1/company/prayer/daily/schedule?slug='+slug, fetcher, { refreshInterval: refreshInterval })
     if(error) return <p className='text-center'> Failed to load!</p>
     if(!data) return <p className='text-center'>loading...</p>
+    if(!data.prayers) return
 
     return (
         <div className="ds-body">
@@ -30,12 +32,12 @@ document.getElementById('show-date').innerText = today.toLocaleDateString("en-US
                 }
             </Script>
             <div className="">
-                <div className="table-head d-flex justify-content-center align-items-center text-center py-3 fw-bold"
+                <div className="table-head d-flex justify-content-center align-items-center text-center"
                      id="show-date">
 
                     Today&apos;s Prayer Times
                 </div>
-                <table className="table table-borderless table-prayer-times table-border-custom table-striped m-0 border-0">
+                <table className="table table-borderless table-prayer-times table-striped m-0 border-0">
                     <thead>
                     <tr>
                         <th>Salah</th>
@@ -47,7 +49,7 @@ document.getElementById('show-date').innerText = today.toLocaleDateString("en-US
                     <tbody>
 
                     {data.prayers.map((data, index)=>(
-                        <tr key={index}>
+                        <tr key={index} className="table-prayer-times-row">
                         <td>{data.prayerName}</td>
                         <td>{data.adhan}</td>
                         <td>{data.prayer}</td>
