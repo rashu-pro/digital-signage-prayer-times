@@ -32,7 +32,7 @@ document.getElementById('show-date').innerText = today.toLocaleDateString("en-US
                 }
             </Script>
             <div className="">
-                <div className="table-head d-flex justify-content-center align-items-center text-center"
+                <div className="table-head text-yellow d-flex justify-content-center align-items-center text-center"
                      id="show-date">
 
                     Today&apos;s Prayer Times
