@@ -42,7 +42,7 @@ export default function JummuahTimes(){
                     <div className="">
                         <Marquee className="py-4 text-yellow marquee-text"
                                  gradient={false}
-                                 pauseOnClick={true} speed={85}>
+                                 pauseOnClick={true} speed={180}>
                             <Announcements />
                         </Marquee>
                     </div>

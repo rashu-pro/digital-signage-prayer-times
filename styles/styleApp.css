@@ -8673,6 +8673,7 @@ h2, h3, h4, h5, h6 {
 }
 .logo-holder.credit-logo img {
   /*max-height: 80px;*/
+  position: relative!important;
 }
 
 .jummah-holder {
@@ -8715,12 +8716,12 @@ h2, h3, h4, h5, h6 {
 
 .ds-credit img{
   max-height: 5rem;
-  max-width: 14rem;
+  max-width: 11rem;
 }
 @media (min-width: 992px) {
   .ds-credit img{
     max-height: 7rem;
-    max-width: 16rem;
+    max-width: 11rem;
   }
 }
 .table-jummuah-times th span{
@@ -8947,4 +8948,22 @@ h2, h3, h4, h5, h6 {
   .jummah-row span{
     width:auto;
   }
+}
+
+.marquee-single{
+  position: relative;
+  padding-left: 1.4rem;
+  margin-left: 5rem;
+}
+.marquee-single:before{
+  content: "";
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: #edda04;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
 }

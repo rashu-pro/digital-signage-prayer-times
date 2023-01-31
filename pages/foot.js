@@ -1,6 +1,5 @@
 import CompanyLogo from "./company-info";
 import Image from "next/image";
-import logoCredit from "../public/images/powered_by_ms_3_resized.png";
 
 let developerCompany
 developerCompany = 'Masjid Solutions'
@@ -12,7 +11,7 @@ export default function ScreenFoot(){
               <CompanyLogo />
 
                 <div className="credit-logo logo-holder">
-                    <Image src={logoCredit} alt={developerCompany} height={48}/>
+                    <Image src="https://res.cloudinary.com/secure-api/image/upload/v1675168899/secure-api/Secure-api/images/byu2ndwvjtwfczpkz87d.png" alt={developerCompany} fill />
                 </div>
             </div>
         </div>
