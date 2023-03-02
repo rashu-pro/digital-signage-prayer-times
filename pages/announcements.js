@@ -11,7 +11,7 @@ export default function Announcements(){
     return (
       <>
         {data.map((data, index)=>(
-          <>
+          <div key={index}>
             {data.title?(
               <div key={index} className="me-2 marquee-single">
               <p className="m-0">{data.title} </p>
@@ -20,7 +20,7 @@ export default function Announcements(){
                 <></>
             )}
 
-          </>
+          </div>
         ))}
       </>
     )

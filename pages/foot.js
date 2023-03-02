@@ -11,7 +11,12 @@ export default function ScreenFoot(){
               <CompanyLogo />
 
                 <div className="credit-logo logo-holder">
-                    <Image src="https://res.cloudinary.com/secure-api/image/upload/v1675168899/secure-api/Secure-api/images/byu2ndwvjtwfczpkz87d.png" alt={developerCompany} fill />
+                  <p className="m-0 d-flex align-center justify-center ds-event-bottom-foot-credit">
+                    <Image src="https://secure-api.net/Content/payment-method-update-assets/img/logo-masjid-main.png"
+                           alt={developerCompany}
+                           fill />
+                    Powered By &nbsp;<a href="https://masjidsolutions.net">https://masjidsolutions.net</a></p>
+
                 </div>
             </div>
         </div>

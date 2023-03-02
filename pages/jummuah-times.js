@@ -6,33 +6,32 @@ import Announcements from "./announcements";
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function JummuahTimes(){
     const { asPath } = useRouter();
-    const origin =
-      typeof window !== 'undefined' && window.location.origin
-        ? window.location.origin
-        : '';
-
     let slug = asPath.split('=');
     slug = slug[slug.length - 1];
 
     const { data, error } = useSWR('https://secure-api.net/api/v1/company/prayer/daily/schedule?slug='+slug, fetcher, { refreshInterval: 21600000 })
     if(error) return <p className='text-center'> Failed to load... </p>
     if(!data) return <p className='text-center'>loading...</p>
-    console.log('jummah length: ', data.jummah.length);
+
+    let documentWidth = window.innerWidth;
+    let documentHeight = window.innerHeight;
+    let documentFontSize = '';
+    let tickerSpeed = 20;
     if(data.jummah.length<2){
-        let documentWidth = window.innerWidth;
-        let documentHeight = window.innerHeight;
-        console.log(documentWidth);
         if(documentHeight>1800 && documentWidth>1040){
-            document.querySelector('body').style.fontSize = "26.5px";
-            document.querySelector('html').style.fontSize = "26.5px";
+            documentFontSize = '31px';
             document.querySelector('body').classList.add('padding-big');
         }
 
         if(documentHeight>3650 && documentWidth>2050){
-            document.querySelector('body').style.fontSize = "53px";
-            document.querySelector('html').style.fontSize = "53px";
+            documentFontSize = '63px';
+            documentFontSize = '63px';
+            tickerSpeed = 50;
+            document.querySelector('body').classList.add('padding-big');
         }
     }
+    document.querySelector('body').style.fontSize = documentFontSize;
+    document.querySelector('html').style.fontSize = documentFontSize;
 
     return (
         <div className="ds-foot ds-inner">
@@ -42,7 +41,7 @@ export default function JummuahTimes(){
                     <div className="">
                         <Marquee className="py-4 text-yellow marquee-text"
                                  gradient={false}
-                                 pauseOnClick={true} speed={180}>
+                                 pauseOnClick={true} speed={tickerSpeed}>
                             <Announcements />
                         </Marquee>
                     </div>
@@ -74,8 +73,6 @@ export default function JummuahTimes(){
 
                     ) )}
                     </tbody>
-                    <tr>
-                    </tr>
                 </table>
             </div>
         </div>

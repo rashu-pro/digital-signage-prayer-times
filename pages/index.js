@@ -1,7 +1,5 @@
 import Head from 'next/head'
 import PrayerTimes from "./prayer-times";
-import AnnouncementsSlides from "./announcements";
-import JummuahTimes from "./jummuah-times";
 import ScreenHead from "./head";
 import ScreenFoot from "./foot";
 
