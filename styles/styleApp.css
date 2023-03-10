@@ -8723,8 +8723,10 @@ h2, h3, h4, h5, h6 {
 }
 @media (min-width: 992px) {
   .ds-credit img{
+    /*max-height: 7rem;*/
+    /*max-width: 11rem;*/
     max-height: 7rem;
-    max-width: 11rem;
+    max-width: 16rem;
   }
   .ds-credit .organization-logo img{
     max-height: 100%;
@@ -8828,9 +8830,11 @@ h2, h3, h4, h5, h6 {
 }
 .ds-body .table tr th, .ds-body .table tr td{
   /*height:6.2rem;*/
-  font-size:2.3rem;
+  /*font-size:2.3rem;*/
+  font-size:2.0rem;
   padding: 1.2rem .6rem;
   line-height: 1;
+  white-space: nowrap;
 }
 
 @media (min-height: 1080px){
@@ -8846,6 +8850,11 @@ h2, h3, h4, h5, h6 {
 }
 
 .padding-big .ds-body .table tr th, .ds-body .table tr td{
+  /*height:6.2rem;*/
+  /*padding: 1.4rem .6rem;*/
+}
+
+.padding-big .ds-body .table tr th{
   /*height:6.2rem;*/
   padding: 1.4rem .6rem;
 }
@@ -8984,11 +8993,11 @@ h2, h3, h4, h5, h6 {
   font-size:.6rem;
   display:flex;
   align-items: center;
-  opacity: 0.7;
+  /*opacity: 0.7;*/
   color:#202020;
 }
 .ds-event-bottom-foot-credit img{
-  top:-3px!important;
-  max-height: 1.3rem;
-  width:auto!important;
+  /*top:-3px!important;*/
+  /*max-height: 1.3rem;*/
+  /*width:auto!important;*/
 }

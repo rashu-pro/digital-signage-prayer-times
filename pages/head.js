@@ -1,4 +1,5 @@
-import dynamic from 'next/dynamic'
+// import dynamic from 'next/dynamic'
+import Clock from 'react-live-clock'
 /**
  * As an alternate solution, the issue can also be
  * circumvented by dynamically importing the React
@@ -9,9 +10,9 @@ import dynamic from 'next/dynamic'
  *
  * https://nextjs.org/docs/advanced-features/dynamic-import#with-no-ssr
  */
-const Clock = dynamic(() => import('react-live-clock'), {
-  ssr: false,
-})
+// const Clock = dynamic(() => import('react-live-clock'), {
+//   ssr: false,
+// })
 
 export default function ScreenHead(){
     return (

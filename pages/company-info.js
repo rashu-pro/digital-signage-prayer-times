@@ -11,9 +11,9 @@ export default function CompanyLogo() {
   let slug = url.split('=');
   slug = slug[slug.length-1];
   let companyLogo = data.logoURL;
-  if(slug ==='ics'){
-    companyLogo = 'https://res.cloudinary.com/secure-api/image/upload/v1675159812/secure-api/ics/images/obw2vgner7zjapdvdo6e.png';
-  }
+  // if(slug ==='ics'){
+  //   companyLogo = 'https://res.cloudinary.com/secure-api/image/upload/v1675159812/secure-api/ics/images/obw2vgner7zjapdvdo6e.png';
+  // }
 
   return (
     <div className="organization-logo logo-holder">
