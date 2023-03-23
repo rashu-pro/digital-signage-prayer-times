@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 import {useRouter} from "next/router";
 import Marquee from "react-fast-marquee";
-import Announcements from "./announcements";
+import Announcements from "./components/announcements";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function JummuahTimes(){
@@ -9,7 +9,11 @@ export default function JummuahTimes(){
     let slug = asPath.split('=');
     slug = slug[slug.length - 1];
 
-    const { data, error } = useSWR('https://secure-api.net/api/v1/company/prayer/daily/schedule?slug='+slug, fetcher, { refreshInterval: 21600000 })
+    let baseUrl = 'https://secure-api.net/api/v1';
+    let endpoint ='/company/prayer/daily/schedule';
+    let queryParameter = '?slug='+slug;
+
+    const { data, error } = useSWR(baseUrl+endpoint+queryParameter, fetcher, { refreshInterval: 21600000 })
     if(error) return <p className='text-center'> Failed to load... </p>
     if(!data) return <p className='text-center'>loading...</p>
 
@@ -17,6 +21,9 @@ export default function JummuahTimes(){
     let documentHeight = window.innerHeight;
     let documentFontSize = '';
     let tickerSpeed = 20;
+    if(documentHeight>3650 && documentWidth>2050){
+        tickerSpeed = 70;
+    }
     if(data.jummah.length<2){
         if(documentHeight>1800 && documentWidth>1040){
             documentFontSize = '31px';
@@ -26,7 +33,6 @@ export default function JummuahTimes(){
         if(documentHeight>3650 && documentWidth>2050){
             documentFontSize = '63px';
             documentFontSize = '63px';
-            tickerSpeed = 50;
             document.querySelector('body').classList.add('padding-big');
         }
     }
@@ -45,9 +51,6 @@ export default function JummuahTimes(){
                             <Announcements />
                         </Marquee>
                     </div>
-                    <div className='text-center'>
-                        {/*<p className="jummah-date bg-success">{data.jummah[0].date}</p>*/}
-                    </div>
                 </div>
 
 
@@ -55,22 +58,19 @@ export default function JummuahTimes(){
                     <tbody>
 
                     { data.jummah.map( (data, index) => (
-                      <>
-                          <tr key={index} className={"row-"+index}>
-                              <td>
-                                  <div className="d-flex justify-content-between jummah-row">
-                                      <span>{data.prayerName}</span>
-                                      <span>{data.adhan}</span>
-                                      <span>{data.prayer}</span>
-                                  </div>
-                                  <div className="text-left khateeb-name">
-                                      Khateeb: {data.khateeb}
-                                  </div>
-                              </td>
+                      <tr key={index} className={"row-"+index}>
+                          <td>
+                              <div className="d-flex justify-content-between jummah-row">
+                                  <span>{data.prayerName}</span>
+                                  <span>{data.adhan}</span>
+                                  <span>{data.prayer}</span>
+                              </div>
+                              <div className="text-left khateeb-name">
+                                  {data.khateeb && <p>Khateeb: {data.khateeb}</p>}
+                              </div>
+                          </td>
 
-                          </tr>
-                      </>
-
+                      </tr>
                     ) )}
                     </tbody>
                 </table>

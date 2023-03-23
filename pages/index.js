@@ -1,12 +1,7 @@
 import Head from 'next/head'
 import PrayerTimes from "./prayer-times";
-import ScreenHead from "./head";
-import ScreenFoot from "./foot";
-
-let companyName
-let developerCompany
-companyName = "ICS"
-developerCompany = 'Masjid Solutions'
+import ScreenHead from "./components/head";
+import ScreenFoot from "./components/foot";
 
 export default function Home() {
   return (

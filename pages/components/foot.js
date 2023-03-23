@@ -17,7 +17,6 @@ export default function ScreenFoot(){
                              alt={developerCompany}
                              fill />
                     </a>
-                    {/*Powered By &nbsp;<a href="https://masjidsolutions.net">https://masjidsolutions.net</a>*/}
                   </p>
 
                 </div>
