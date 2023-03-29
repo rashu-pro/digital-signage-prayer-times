@@ -8516,7 +8516,7 @@ h2, h3, h4, h5, h6 {
   max-width: 100%;
   margin: 0 auto;
   /*background-color: #1FAA60;*/
-  background-color: #2e7346;
+  /*background-color: #2e7346;*/
   color:#fff;
   display: flex;
   flex-direction: column;
@@ -8531,6 +8531,7 @@ h2, h3, h4, h5, h6 {
   bottom: 0;
   left: 0;
   right: 0;
+  background:#fff;
 }
 @media (min-width: 992px) {
   .ds-wrapper {
@@ -8648,7 +8649,7 @@ h2, h3, h4, h5, h6 {
 }
 .ds-body .table-striped > tbody > tr:nth-of-type(odd) > * {
   color: #fff;
-  background: #80b193;
+  /*background: #80b193;*/
   box-shadow: none;
 }
 
@@ -8961,7 +8962,7 @@ h2, h3, h4, h5, h6 {
 }
 @media (max-width: 768px){
   body,html{
-    font-size: 9px;
+    font-size: 11px;
   }
   .table-prayer-times-row td{
     width:auto;

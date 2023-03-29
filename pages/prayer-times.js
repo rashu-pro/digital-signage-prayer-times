@@ -3,6 +3,8 @@ import {useRouter} from "next/router";
 import Script from "next/script";
 import JummuahTimes from "./jummuah-times";
 
+const alternateTdColor = 'rgba(255, 255, 255, 0.4)';
+
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 export default function PrayerTimes(){
     const { asPath } = useRouter();
@@ -26,6 +28,13 @@ export default function PrayerTimes(){
 
     return (
         <div className="ds-body">
+            <style jsx>{
+                `
+                .ds-body .table-striped > tbody > tr:nth-of-type(odd) > * {
+                    background: ${alternateTdColor};
+                }
+        `
+            }</style>
             <Script id="current-date" strategy="lazyOnload">
                 {
                     `
@@ -64,7 +73,7 @@ document.getElementById('show-date').innerText = today.toLocaleDateString("en-US
                 </table>
             </div>
 
-            <JummuahTimes />
+            <JummuahTimes alternateColor={alternateTdColor} />
         </div>
     )
 }

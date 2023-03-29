@@ -3,16 +3,25 @@ import PrayerTimes from "./prayer-times";
 import ScreenHead from "./components/head";
 import ScreenFoot from "./components/foot";
 
+const bgColor = '#2e7346';
+
 export default function Home() {
   return (
     <div>
       <Head>
-        <title>Digital Signage</title>
+        <title>Prayer Times</title>
         <meta name="description" content="Digital Signage" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon-digital-signage.png" />
       </Head>
 
-      <div className='ds-main v2'>
+      <style jsx>{
+        `
+        .bg-color{
+          background-color: ${bgColor}
+        }
+        `
+      }</style>
+      <div className='ds-main bg-color v2'>
         <div className='ds-wrapper'>
           {/*ds head*/}
           <ScreenHead />
