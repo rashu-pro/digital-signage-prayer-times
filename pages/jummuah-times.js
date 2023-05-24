@@ -9,7 +9,8 @@ export default function JummuahTimes(props) {
   let slug = asPath.split('=');
   slug = slug[slug.length - 1];
 
-  let baseUrl = 'https://secure-api.net/api/v1';
+  let baseUrl = 'https://secure-api.net/beta/api/v1';
+  let baseUrlLive = 'https://secure-api.net/api/v1';
   let endpoint = '/company/prayer/daily/schedule';
   let queryParameter = '?slug=' + slug;
 
