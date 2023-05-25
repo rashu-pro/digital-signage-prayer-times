@@ -4,12 +4,11 @@ import getSlug from "./slug";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
 
-export default function Announcements(){
-  let baseUrl = 'https://secure-api.net/api/v1';
+export default function Announcements(props){
   let endpoint ='/digital-signage-tickers';
   let queryParameter = '?slug='+getSlug();
 
-  const { data, error } = useSWR(baseUrl+endpoint+queryParameter, fetcher)
+  const { data, error } = useSWR(props.dataBaseUrl+endpoint+queryParameter, fetcher)
   if(error) return <p className='text-center'> Failed to load... </p>
   if(!data) return <p className='text-center'>loading...</p>
 

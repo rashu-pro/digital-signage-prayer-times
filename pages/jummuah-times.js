@@ -9,12 +9,10 @@ export default function JummuahTimes(props) {
   let slug = asPath.split('=');
   slug = slug[slug.length - 1];
 
-  let baseUrl = 'https://secure-api.net/beta/api/v1';
-  let baseUrlLive = 'https://secure-api.net/api/v1';
   let endpoint = '/company/prayer/daily/schedule';
   let queryParameter = '?slug=' + slug;
 
-  const {data, error} = useSWR(baseUrl + endpoint + queryParameter, fetcher, {refreshInterval: 21600000})
+  const {data, error} = useSWR(props.dataBaseUrl + endpoint + queryParameter, fetcher, {refreshInterval: 21600000})
   if (error) return <p className='text-center'>Failed to load... </p>
   if (!data) return <p className='text-center'>loading...</p>
 
@@ -52,7 +50,7 @@ export default function JummuahTimes(props) {
             <Marquee className="py-4 text-yellow marquee-text"
                      gradient={false}
                      pauseOnClick={true} speed={tickerSpeed}>
-              <Announcements/>
+              <Announcements dataBaseUrl={props.dataBaseUrl} />
             </Marquee>
           </div>
         </div>

@@ -6,7 +6,7 @@ import JummuahTimes from "./jummuah-times";
 const alternateTdColor = 'rgba(255, 255, 255, 0.4)';
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json())
-export default function PrayerTimes(){
+export default function PrayerTimes(props){
     const { asPath } = useRouter();
     const origin =
       typeof window !== 'undefined' && window.location.origin
@@ -17,11 +17,10 @@ export default function PrayerTimes(){
     slug = slug[slug.length - 1];
     let refreshInterval = 120*3600*1000;
 
-    let baseUrl = 'https://secure-api.net/api/v1';
     let endpoint ='/company/prayer/daily/schedule';
     let queryParameter = '?slug='+slug;
 
-    const { data, error } = useSWR(baseUrl+endpoint+queryParameter, fetcher, { refreshInterval: refreshInterval })
+    const { data, error } = useSWR(props.dataBaseUrl+endpoint+queryParameter, fetcher, { refreshInterval: refreshInterval })
     if(error) return <p className='text-center'> Failed to load!</p>
     if(!data) return <p className='text-center'>loading...</p>
     if(!data.prayers) return
@@ -73,7 +72,7 @@ document.getElementById('show-date').innerText = today.toLocaleDateString("en-US
                 </table>
             </div>
 
-            <JummuahTimes alternateColor={alternateTdColor} />
+            <JummuahTimes dataBaseUrl={props.dataBaseUrl} alternateColor={alternateTdColor} />
         </div>
     )
 }

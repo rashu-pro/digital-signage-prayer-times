@@ -4,11 +4,11 @@ import Image from "next/image";
 let developerCompany
 developerCompany = 'Masjid Solutions'
 
-export default function ScreenFoot(){
+export default function ScreenFoot(props){
     return (
         <div className="ds-credit">
             <div className="ds-credit-inner d-flex justify-content-between align-items-center px-4 bg-white">
-              <CompanyLogo />
+              <CompanyLogo dataBaseUrl={props.dataBaseUrl} />
 
                 <div className="credit-logo logo-holder">
                   <p className="m-0 d-flex align-center justify-center ds-event-bottom-foot-credit">
